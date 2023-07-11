@@ -65,8 +65,6 @@ jobs:
         artifactName=$(ls *.jar | head -1)
         mvn deploy -DmuleDeploy \
          -Dmule.artifact=$artifactName \
-         -Danypoint.username="$USERNAME" \
-         -Danypoint.password="$PASSWORD" \
          -Dapp.runtime="4.4.0" \
          -Dusername="$USERNAME" \
          -Dpassword="$PASSWORD" \
