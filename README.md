@@ -1,1 +1,1 @@
-# MB.XAPI
+# mb-xapi
