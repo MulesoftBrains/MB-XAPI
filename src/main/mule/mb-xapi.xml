@@ -7,7 +7,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="11411cc5-dff2-4350-9767-a75f3e6e13f6" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
-	<flow name="mb.xapiFlow" doc:id="1d0fbe1d-4ebe-4f69-a5fb-ca78f3be2424" >
+	<flow name="mb-xapiFlow" doc:id="1d0fbe1d-4ebe-4f69-a5fb-ca78f3be2424" >
 		<http:listener doc:name="Listener" doc:id="7b7e41af-cf89-4c30-a601-52aaf2d056dd" config-ref="HTTP_Listener_config" path="/xapi"/>
 		<logger level="INFO" doc:name="Logger" doc:id="bad74832-efcc-425c-980d-b5734c313f49" message="#[message]"/>
 	</flow>

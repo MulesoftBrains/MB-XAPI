@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>mb.xapi</artifactId>
+	<artifactId>mb-xapi</artifactId>
 	<version>1.0.1</version>
 	<packaging>mule-application</packaging>
 
-	<name>mb.xapi</name>
+	<name>mb-xapi</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,7 +27,7 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
-				<version>3.4.2</version>
+				<version>3.8.2</version>
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
