@@ -17,19 +17,11 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		<ee:transform doc:name="Transform Message" doc:id="c655ff55-6ac6-4bae-9ea2-759edbf27b1a" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
-output application/java
+output application/json
 ---
 (payload splitBy  "&") map ((item, index) -> 
     if(item contains("=")) item replace "=" with ":" else item
 )]]></ee:set-payload>
-			</ee:message>
-		</ee:transform>
-		<ee:transform doc:name="Transform Message" doc:id="d7df8d66-53ac-475b-8f33-7b1dcbe870fc" >
-			<ee:message >
-				<ee:set-payload ><![CDATA[%dw 2.0
-output application/json
----
-payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 		<http:request method="POST" doc:name="Request" doc:id="ef7aba7a-0c31-489d-a390-4e3ebc2e4308" config-ref="HTTP_Request_configuration" path="/api/enquiry-papi"/>
