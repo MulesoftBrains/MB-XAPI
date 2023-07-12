@@ -19,7 +19,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
 ---
-(payload splitBy  "&") map ((item, index) -> 
+payload map ((item, index) -> 
     if(item contains("=")) item replace "=" with ":" else item
 )]]></ee:set-payload>
 			</ee:message>
