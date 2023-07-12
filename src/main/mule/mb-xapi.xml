@@ -18,10 +18,11 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
+var data = payload splitBy  "&" map ((item, index) -> (
+    if(item contains("=")) item replace  "=" with ":" replace  "%40" with "@" replace "+" with " " else item
+))
 ---
-payload map ((item, index) -> 
-    if(item contains("=")) item replace "=" with ":" else item
-)]]></ee:set-payload>
+"mydata": data]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 		<http:request method="POST" doc:name="Request" doc:id="ef7aba7a-0c31-489d-a390-4e3ebc2e4308" config-ref="HTTP_Request_configuration" path="/api/enquiry-papi"/>
