@@ -14,17 +14,12 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	<flow name="mb-xapiFlow" doc:id="1d0fbe1d-4ebe-4f69-a5fb-ca78f3be2424" >
 		<http:listener doc:name="Listener" doc:id="7b7e41af-cf89-4c30-a601-52aaf2d056dd" config-ref="HTTP_Listener_config" path="/xapi" allowedMethods="POST"/>
 		<logger level="INFO" doc:name="Logger" doc:id="bad74832-efcc-425c-980d-b5734c313f49" message="#[payload]"/>
-		<ee:transform doc:name="Transform Message" doc:id="c655ff55-6ac6-4bae-9ea2-759edbf27b1a" >
-			<ee:message >
-				<ee:set-payload ><![CDATA[%dw 2.0
+		<ee:transform doc:name="Transform Message" doc:id="c655ff55-6ac6-4bae-9ea2-759edbf27b1a">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
 output application/json
-var data = payload map ((item, index) -> (
-    if(item contains("=")) item replace  "=" with ":" replace  "%40" with "@" replace "+" with " " else item
-))
 ---
-{
-	(data)
-}]]></ee:set-payload>
+payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 		<http:request method="POST" doc:name="Request" doc:id="ef7aba7a-0c31-489d-a390-4e3ebc2e4308" config-ref="HTTP_Request_configuration" path="/api/enquiry-papi"/>
