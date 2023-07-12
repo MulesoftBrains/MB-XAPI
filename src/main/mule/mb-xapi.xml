@@ -18,7 +18,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
-var data = payload splitBy  "&" map ((item, index) -> (
+var data = payload map ((item, index) -> (
     if(item contains("=")) item replace  "=" with ":" replace  "%40" with "@" replace "+" with " " else item
 ))
 ---
